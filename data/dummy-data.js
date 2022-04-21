@@ -1,32 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@dphavorachit 
-academind
-/
-react-native-practical-guide-code
-Public
-Code
-Issues
-Pull requests
-1
-Actions
-Projects
-Wiki
-Security
-Insights
-react-native-practical-guide-code/extra-files/dummy-data.js
-@maxschwarzmueller
-maxschwarzmueller added code, slides & other resources
-Latest commit ea3ce77 on Mar 8
- History
- 1 contributor
-Executable File  337 lines (327 sloc)  9.82 KB
-   
 import Category from '../models/category';
 import Meal from '../models/meal';
 
@@ -364,15 +335,3 @@ export const MEALS = [
     true
   )
 ];
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
