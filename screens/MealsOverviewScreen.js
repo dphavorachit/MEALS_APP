@@ -22,7 +22,7 @@ function MealsOverviewScreen({ route }) {
 
     // Imported from MealItem.js as a function
      function renderMealItem(itemData) {
-         return <MealItem title={itemData.item.title} />;
+         return <MealItem title={itemData.item.title} imageUrl={itemData.item.imageUrl} />;
      };
 
     return (
