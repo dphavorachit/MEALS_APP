@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import CategoriesScreen from './screens/CategoriesScreen';
+import MealsOverviewScreen from './screens/MealsOverviewScreen';
 
 // Stack now contains a stack of screens that holds 2 component: name, component.
 // The name is a way to give an ID to the screen. Component points to the screen component. Just the pointerk.
@@ -16,6 +17,7 @@ export default function App() {
     <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="MealsCategories" component={CategoriesScreen} />
+          <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
         </Stack.Navigator>
         {/*<CategoriesScreen /> // Not needed anymore since the screen is in the stack*/}
     </NavigationContainer>
