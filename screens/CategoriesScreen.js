@@ -8,7 +8,11 @@ import { CATEGORIES } from '../data/dummy-data';
 function CategoriesScreen({ navigation }) {
     function renderCategoryItem(itemData) {
         function pressHandler() {
-            navigation.navigate('MealsOverview');
+            // Navigation prop requires the name of the stack screen to navigate to.
+            // You can optionally add a secondary parameter/identifier to select specific sets of data
+            navigation.navigate('MealsOverview', {
+                categoryId: itemData.item.id
+            });
         }
     
         return (
