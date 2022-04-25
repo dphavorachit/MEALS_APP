@@ -22,8 +22,19 @@ function MealsOverviewScreen({ route }) {
 
     // Imported from MealItem.js as a function
      function renderMealItem(itemData) {
-         return <MealItem title={itemData.item.title} imageUrl={itemData.item.imageUrl} />;
-     };
+         // Helper object to import props from MealItem.js
+         const item = itemData.item;    // using itemData.item multiple times within function - use item variable
+         const mealItemProps = {
+            title: item.title,
+            imageUrl: item.imageUrl,
+            affordability: item.affordability,
+            complexity: item.complexity,
+            duration: item.duration
+         };
+         return (
+            <MealItem {...mealItemProps} />
+         );
+     }
 
     return (
         <View style={styles.container}>
