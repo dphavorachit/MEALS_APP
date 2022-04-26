@@ -1,5 +1,6 @@
 import { View, Pressable, Text, Image, StyleSheet, Platform} from "react-native";
 import { useNavigation } from '@react-navigation/native' // Hook
+import MealDetails from "./MealDetails";
 
 function MealItem({ id, title, imageUrl, duration, complexity, affordability}) {
     const navigation = useNavigation();     // function call for useNavigation hook
@@ -26,7 +27,7 @@ function MealItem({ id, title, imageUrl, duration, complexity, affordability}) {
                     <Image source={{uri: imageUrl }} style={styles.image} />
                     <Text style={styles.title}>{title}</Text>    
                 </View>
-                
+                <MealDetails duration={duration} affordability={affordability} complexity={complexity}/>
             </View>
         </Pressable>
     </View>
