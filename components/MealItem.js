@@ -4,9 +4,14 @@ import { useNavigation } from '@react-navigation/native' // Hook
 function MealItem({ id, title, imageUrl, duration, complexity, affordability}) {
     const navigation = useNavigation();     // function call for useNavigation hook
 
-    navigation.navigate('MealDetails', {        // uses the 'name' of the screen in App.js
+    // Need to add this function so that the MealDetailsScreen only routes when the button is selected on press.
+    function selectMealItemHandler()  {
+        navigation.navigate('MealDetails', {        // uses the 'name' of the screen in App.js
         mealId: id      // calling params using the id prop from MealItem function above
-    });     
+        });    
+    }
+    
+     
 
 
     return (
@@ -14,6 +19,7 @@ function MealItem({ id, title, imageUrl, duration, complexity, affordability}) {
         <Pressable 
             android_ripple={{color: '#ccc' }}
             style={({pressed}) =>  pressed ? styles.buttonPressed : null}
+            onPress={selectMealItemHandler}
         >
             <View>
                 <View>
