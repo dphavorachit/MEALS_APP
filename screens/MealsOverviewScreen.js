@@ -36,11 +36,13 @@ function MealsOverviewScreen({ route, navigation }) {
          // Helper object to import props from MealItem.js
          const item = itemData.item;    // using itemData.item multiple times within function - use item variable
          const mealItemProps = {
+            id: item.id,
             title: item.title,
             imageUrl: item.imageUrl,
             affordability: item.affordability,
             complexity: item.complexity,
-            duration: item.duration
+            duration: item.duration,
+            
          };
          return (
             <MealItem {...mealItemProps} />

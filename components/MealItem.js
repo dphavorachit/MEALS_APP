@@ -1,6 +1,14 @@
 import { View, Pressable, Text, Image, StyleSheet, Platform} from "react-native";
+import { useNavigation } from '@react-navigation/native' // Hook
 
-function MealItem({ title, imageUrl, duration, complexity, affordability}) {
+function MealItem({ id, title, imageUrl, duration, complexity, affordability}) {
+    const navigation = useNavigation();     // function call for useNavigation hook
+
+    navigation.navigate('MealDetails', {        // uses the 'name' of the screen in App.js
+        mealId: id      // calling params using the id prop from MealItem function above
+    });     
+
+
     return (
     <View style={styles.mealItem}>
         <Pressable 
