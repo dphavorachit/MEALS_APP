@@ -1,4 +1,4 @@
-import { Text, View, Image, StyleSheet } from 'react-native';
+import { Text, View, Image, StyleSheet, ScrollView } from 'react-native';
 import List from '../components/MealDetail/List';
 import Subtitle from '../components/MealDetail/Subtitle';
 
@@ -10,7 +10,7 @@ function MealDetailsScreen({route}) {
 
     const selectedMeal = MEALS.find((meal) => meal.id === mealId);      // gives access to MEALS properties
     return (
-        <View>
+        <ScrollView style={styles.rootContainer}>
             <Image style={styles.image} source={{ uri: selectedMeal.imageUrl }}/>
             <Text style={styles.title}>{selectedMeal.title}</Text>
             <MealDetails 
@@ -27,13 +27,16 @@ function MealDetailsScreen({route}) {
                     <List data={selectedMeal.steps}/>
                 </View>
             </View>
-        </View>
+        </ScrollView>
     )
 }
 
 export default MealDetailsScreen;
 
 const styles = StyleSheet.create({
+    rootContainer: {
+        marginBottom: 32
+    },
     image: {
         width: '100%',
         height: 350
