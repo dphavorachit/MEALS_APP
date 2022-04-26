@@ -1,14 +1,14 @@
 
-import { render } from 'react-dom';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { useLayoutEffect } from 'react';
+import { View, FlatList, StyleSheet } from 'react-native';
 // Can also use hook as an alternative to using route
 // import { useRoute } from '@react-navigation/native';
 
 import MealItem from '../components/MealItem';
-import { MEALS } from '../data/dummy-data';
+import { MEALS, CATEGORIES } from '../data/dummy-data';
 
 // Route prop can be used like the navigation prop.
-function MealsOverviewScreen({ route }) {
+function MealsOverviewScreen({ route, navigation }) {
     // optional object containing params which is defined while navigating. 
     const catId = route.params.categoryId;  // comes from the CategoriesScreen. the param "CategoryId" is defined in the navigation prop for MealsOverview
    
@@ -19,6 +19,17 @@ function MealsOverviewScreen({ route }) {
     const displayedMeals = MEALS.filter((mealItem) => { 
         return mealItem.categoryIds.indexOf(catId) >= 0;
      });
+
+    // Need to place the navigation set options into a useLayoutEffect to avoid warnings. Because CATEGORIES is external being imported.
+     useLayoutEffect(() => {
+        const categoryTitle = CATEGORIES.find((category) => category.id === catId).title;
+
+        navigation.setOptions({
+            title: categoryTitle
+        });
+     }, [catId, navigation]);   //DEPENDENCIES
+
+ 
 
     // Imported from MealItem.js as a function
      function renderMealItem(itemData) {
